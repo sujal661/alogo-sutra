@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname()
 
   const navItems = [
-    { name: "Training", href: "/" },
+    { name: "Training", href: "/landingPage" },
     { name: "Plans", href: "/plans" },
     { name: "Products", href: "/products" },
     { name: "About", href: "/aboutUs" },
