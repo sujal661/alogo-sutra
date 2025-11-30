@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from '@/components/ui/button';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Caveat, Inter, Poppins } from 'next/font/google';
 
  const poppins = Poppins({
@@ -22,7 +22,57 @@ import { Caveat, Inter, Poppins } from 'next/font/google';
   variable: "--font-caveat",
 });
 
+ const sliders = [
+    {
+    img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80",
+    title:"Vision",
+    des:"To make algorithmic trading accessible, understandable, and achievable for traders everywhere—bridging the gap between traditional discretionary trading and modern automated systems."
+  },
+  {
+    img:"https://images.unsplash.com/photo-1622130892082-d7d9284a63e2?q=80&w=1556&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title:"Mission",
+    des:"To empower traders with the skills, tools, and support required to navigate markets confidently through structure, clarity, and disciplined automation."
+  },
+  {
+    img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title:"Philosophy",
+    des:"Markets may look random, but price always follows mathematical patterns that repeat across all timeframes and instruments."
+  }
+
+
+]
+
 export default function VisionPage() {
+
+
+
+const [index, setIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => prev + 1);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    if (index === sliders.length) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        setIndex(0);
+      }, 500);
+
+      setTimeout(() => {
+        slider.style.transition = "transform 0.5s ease";
+      }, 550);
+    }
+  }, [index]);
+
+
   const [isVisible, setIsVisible] = useState({
     vision: false,
     cta: false
@@ -46,23 +96,42 @@ export default function VisionPage() {
     return () => observer.disconnect();
   }, []);
 
+
+ 
+
   return (
-    <div className=" px-8 min-h-screen  py-16 px-4">
-      <div className=" mx-auto space-y-16">
+    <div className=" px-8 min-h-screen  overflow-x-hidden py-16 px-4">
+      <div className=" mx-auto space-y-16 overflow-x-hidden ">
         
         {/* Vision Section */}
-        <div className="animate-on-scroll" id="vision">
-          <div className={` flex flex-col md:flex-row gap-12 items-center transition-all duration-1000 ${isVisible.vision ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+        <div className="animate-on-scroll overflow-x-hidden" id="vision">
+
+
+         <div
+  ref={sliderRef}
+  className="flex w-full"
+  style={{
+    transition: "transform 0.5s ease",
+    transform: `translateX(-${index * 100}vw)`,
+  }}
+>
+  {sliders.map((d, i) => (
+    <div 
+      key={i} 
+      className="flex-shrink-0 w-[100vw] flex sm:flex-row flex-col px-0"
+    >
+      <div className={` flex flex-col md:flex-row gap-12 items-center transition-all duration-1000 ${isVisible.vision ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
             
             {/* Image Side */}
-            <div className="order-2 w-full md:w-[2500px]  md:order-1">
+            <div className="order-2 w-full  md:order-1">
               <div className="relative group">
-                <div className="absolute w-[60%] inset-0 bg-gradient-to-r from-blue-200 to-purple-200 rounded-[24px] blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <div className="absolute w-[30%]  sm:w-[50%] inset-0 bg-gradient-to-r from-blue-200 to-purple-200 rounded-[24px] blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="relative w-[80%] rounded-3xl overflow-hidden shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80"
+                
+                    src={d.img}
                     alt="Laptop outdoors"
-                    className=" w-[1600px] h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className=" w-[100%] sm:w-[100%] h-[50vh] object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -73,13 +142,21 @@ export default function VisionPage() {
             {/* Text Side */}
             <div className="order-1 md:order-2 space-y-6">
               <h2 className={`text-[39px] md:text-[56px]  ${poppins.className} text-gray-800`}>
-                Our <span className={`text-[#1A73E8] font-[700] text-[39px] md:text-[78px] ${caveat.className}`}>Vision</span>
+                Our <span className={`text-[#1A73E8] font-[700] text-[39px] md:text-[78px] ${caveat.className}`}>{d.title}</span>
               </h2>
-              <p className={`text-[#161616] ${inter.className} md:text-[18px]  leading-relaxed`}>
-                To make algorithmic trading accessible, understandable, and achievable for traders everywhere—bridging the gap between traditional discretionary trading and modern automated systems.
+              <p className={`text-[#161616] ${inter.className} md:text-[18px] w-[70%] sm:max-w-3xl  leading-relaxed`}>
+                {/* To make algorithmic trading accessible, understandable, and achievable for traders everywhere—bridging the gap between traditional discretionary trading and modern automated systems. */}
+              {d.des}
               </p>
             </div>
           </div>
+      
+    </div>
+  ))}
+</div>
+
+
+          
         </div>
 
         {/* CTA Section */}

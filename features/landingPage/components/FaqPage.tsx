@@ -57,10 +57,10 @@ const FaqPage = () => {
   };
 
   return (
-    <section  className="py-16 px-4 sm:px-6 lg:px-8 ">
-      <div className=" mx-auto">
+    <section  className=" pt-6 md:pt-16 px-[14px] md:px-[36px] ">
+      <div className=" ">
         {/* Header */}
-        <div className="mb-12 animate-fade-in">
+        <div className=" mb-9 md:mb-12 animate-fade-in">
           <p className={`text-[39px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}>
             Frequently Asked Questions
           </p>
@@ -71,7 +71,7 @@ const FaqPage = () => {
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className="  hover:shadow-lg transition-all duration-300 overflow-hidden animate-slide-up"
+              className="  hover:shadow-lg hover:border-[2px] border-[2px]  border-gray-500 rounded-sm transition-all duration-300 overflow-hidden animate-slide-up"
               style={{
                 animationDelay: `${index * 0.1}s`
               }}
@@ -115,7 +115,7 @@ const FaqPage = () => {
                
               </div>
 
-              <div className='h-[1px] bg-gray-500 w-full'></div>
+              {/* <div className='h-[1px] bg-gray-500 w-full'></div> */}
             </div>
           ))}
         </div>

@@ -47,8 +47,8 @@ const ReviewCardsPage = () => {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 ">
-      <div className=" mx-auto">
+    <section className=" py-5 md:py-12 px-[14px] md:px-[36px]  ">
+      <div className=" ">
         {/* Header */}
         <div className="mb-12 animate-fade-in">
           <h2 className={`text-[38px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}>
@@ -62,7 +62,7 @@ const ReviewCardsPage = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-white   rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
+              className="   rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
               style={{
                 animationDelay: `${index * 0.15}s`
               }}

@@ -218,10 +218,10 @@ const LearningResourceCards = () => {
   const filteredArticles = articles.filter(article => article.level === activeFilter);
 
   return (
-    <section className="py-16 px-10 sm:px-6 lg:px-8">
-      <div className="mx-auto">
+    <section className="   overflow-x-hidden  pt-14  px-[14px] md:px-[36px] ">
+      <div className="">
         {/* Header */}
-        <div className="mb-10 animate-fade-in">
+        <div className="mb-10  animate-fade-in">
           <h2 className={`text-3xl sm:text-4xl md:text-[56px] font-normal ${poppins.className} text-[#606060] mb-0`}>
             Explore the Algosutraa<br />
             Learning Resources
@@ -233,7 +233,7 @@ const LearningResourceCards = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-[16px] py-[4px] text-[16px] ${poppins.className} rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`px-[16px] py-[4px] text-[16px] ${poppins.className} flex justify-center items-center h-[30px] sm:h-[32px] rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeFilter === filter
                     ? 'bg-[#14A5FF] text-white shadow-lg'
                     : 'bg-white text-[#606060] border-2 border-[#606060] hover:border-blue-300'
@@ -249,7 +249,7 @@ const LearningResourceCards = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="lg:grid lg:h-[562px]  lg:grid-cols-3 gap-20 mb-20">
+        <div className="lg:grid  lg:h-[562px]  lg:grid-cols-3 gap-6 mb-20">
           {filteredArticles.map((article, index) => (
             <div
               key={article.id}
@@ -297,9 +297,10 @@ const LearningResourceCards = () => {
     w-full              /* mobile: full width */
     sm:w-[60%]          /* small screens */
     md:w-[45%]          /* medium screens */
-    lg:w-[35%]          /* large screens */
-    p-4 sm:p-6 md:p-8   /* padding scales with screen */
-    text-lg sm:text-xl md:text-[16px] px-[24px] py-[0px]
+    lg:w-[588px]          /* large screens */
+   
+    text-lg sm:text-xl md:text-[16px] px-[24px] py-[13px]
+    md:h-[50px]
     rounded-full
    
     ${poppins.className} font-medium

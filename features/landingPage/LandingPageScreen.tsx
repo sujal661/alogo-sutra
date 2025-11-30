@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Check, Menu, X } from 'lucide-react';
 import LearningResourceCards from './components/LearningResourceCards';
 import ReviewCardsPage from './components/ReviewCardsPage';
@@ -11,6 +11,7 @@ import HeroSection from './components/HeroSection';
 import { Poppins,Caveat,Inter } from "next/font/google";
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ScrollAnimate from '@/components/animations/ScrollAnimate';
+import DropArrow from '@/components/animations/DropArrow';
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,11 +31,117 @@ const caveat = Caveat({
   variable: "--font-caveat",
 });
 
+const slides = [
+  {
+    step: "#1",
+    title: "Your Strategy is Broken Down into a Machine-Readable Algorithm",
+    text: [
+      "Your trading approach is first broken down into clear instructions that an algorithm can execute.",
+      "This means defining:",
+    
+      "Nothing in the system is discretionary or ambiguous—every rule is defined exactly as you intend.",
+    ],
+    list:  ["Precise entry and exit conditions",
+      "Indicator or price-action triggers",
+      "Position sizing rules",
+      "Stop-loss, take-profit, and risk parameters"],
+    next: "#2",
+  },
+  {
+    step: "#2",
+    title: "The algorithm processes real-time market data continuously.",
+    text: [
+      "Once live and active, the system listens to the market and updates every parameter in milliseconds.",
+      "It processes:",
+      
+      "This constant recalculation ensures the strategy reacts to the market the moment conditions align.",
+    ],
+    list:[" Tick-by-tick price data",
+      "Volume and volatility metrics",
+      "Real-time market correlations",
+      " Order-book depth (if available)"],
+    next: "#3",
+  },
+  {
+    step: "#3",
+    title: "Signals are generated through condition evaluation.",
+    text: [
+      "The algorithm evaluates your entire logic stack on every update.",
+      "A signal is produced only when all required conditions fire simultaneously, such as:",
+      
+      "This makes your strategy systematic, consistent, and free from emotional overrides.",
+    ],
+    list:[" Indicator crossovers",
+      "Pattern or structure confirmations",
+      "Volatility or momentum thresholds",
+      "Logical AND/OR condition chains"],
+    next: "#4",
+  },
+  {
+    step: "#4",
+    title: "Orders are executed through precise, automated routing.",
+    text: [
+      "When a valid signal appears, the algorithm executes the trade instantly using your preferred order logic.",
+      "Depending on the strategy, this may involve:",
+     
+      ""
+    ],
+    list: ["Market, limit, or stop-loss orders",
+      "Slippage and spread checks",
+      " Position sizing automation",
+      "Partial exits and re-entries",
+      "Bracket orders for automatic risk management"],
+    next: "#5",
+  },
+  {
+    step: "#5",
+    title: "Positions are managed and risk is enforced automatically.",
+    text: [
+      "Once in a trade, the algorithm handles the full lifecycle of the position based on your predefined rules.",
+      "This includes:",
+      
+      "The system maintains discipline even during volatile conditions.",
+    ],
+    list:["Dynamic stop-loss adjustments",
+      " Profit targets and trailing mechanisms",
+      " Re-entry or re-scale rules",
+      " Exiting a position based on logic",
+      " Portfolio-level limits and daily risk caps"],
+    next: "#1",
+  },
+];
+
 const LandingPageScreen = () => {
+
+const [index, setIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => prev + 1);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    if (index === slides.length) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        setIndex(0);
+      }, 500);
+
+      setTimeout(() => {
+        slider.style.transition = "transform 0.5s ease";
+      }, 550);
+    }
+  }, [index]);
  
 
   return (
-    <div className=" w-full min-h-screen bg-[#F0F0F0]">
+    <div className="  w-full min-h-screen bg-[#F0F0F0]">
      
      
 
@@ -43,9 +150,9 @@ const LandingPageScreen = () => {
 
       {/* Why Algo Trading Section */}
       <ScrollAnimate>
-      <section className=" px-4 sm:px-6 lg:px-8 ">
+      <section className=" px-[14px] md:px-[36px]  ">
         <div className="max-w-4xl mx-auto text-center">
-          <p className={`text-3xl sm:text-4xl md:text-[32px] ${poppins.className} font-medium text-[#606060] mb-6 animate-slide-up`}>
+          <p className={`text-3xl sm:text-4xl mb-0 md:text-[32px] ${poppins.className} font-medium text-[#606060] mb-3 sm:mb-6 animate-slide-up`}>
             Why Algo Trading?
           </p>
           <p className={`text-base sm:text-[18px] font-[400] text-[#161616] ${inter.className} leading-relaxed animate-fade-in`}>
@@ -61,61 +168,77 @@ const LandingPageScreen = () => {
       </ScrollAnimate>
 
       {/* How It Works Section */}
-      <ScrollAnimate>
-      <section className="w-full  py-20 px-4 sm:px-6 lg:px-8">
-        <div className=" mx-auto">
-          <p className={`text-[38px] sm:text-4xl md:text-[56px] ${poppins.className}  font-normal text-[#606060] mb-9 animate-slide-up`}>
+      
+      <section className="w-full px-[14px] md:px-[36px] overflow-x-hidden py-20  ">
+        <div className="  ">
+          <p className={`text-[38px] sm:text-4xl  md:text-[56px] ${poppins.className}  font-normal text-[#606060] mb-9 animate-slide-up`}>
             How Does Algorithmic<br />Trading Function
           </p>
 
-          <div className=" flex sm:flex-row flex-col gap-4 lg:gap-12">
-            {/* Step 1 */}
-            <div className=" w-full sm:w-[75%] text-3xl bg-white rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
-              <div className="flex items-start mb-4">
-                <span className={`text-[32px] font-semibold ${poppins.className} text-[#606060] mr-4`}>#1</span>
+           <div
+  ref={sliderRef}
+  className="flex  w-full"
+  style={{
+    transition: "transform 0.5s ease",
+    transform: `translateX(-${index * 100}vw)`,
+  }}
+>
+  {slides.map((d, i) => (
+    <div 
+      key={i} 
+      className="flex-shrink-0 w-[100vw] flex sm:flex-row flex-col  sm:mr-0  sm:px-0"
+    >
+      <div className="flex  w-full sm:flex-row flex-col gap-4 lg:gap-12 ">
+        {/* Step 1 */}
+        <div className=" w-[80%] sm:w-[60%] text-3xl bg-white rounded-2xl px-6 py-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+          <div className="flex items-start mb-4">
+            <span className={`text-[32px] font-semibold ${poppins.className} text-[#606060] mr-4`}>{d.step}</span>
+          </div>
+          <p className={`text-[27px] sm:text-[32px] font-normal text-[#606060] mb-4`}>
+            {d.title}
+          </p>
+          <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[17px] sm:text-[18px]`}>
+            {d.text[0]}
+          </p>
+          <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[18px]`}>
+            {d.text[1]}
+          </p>
+          <ul className="space-y-2">
+            {d.list.map((item, index) => (
+              <div key={index} className="flex items-start mb-0">
+                <div className='h-[20px] w-[20px] rounded-full bg-[#14A5FF] p-0.5 mr-3'>
+                  <Check color='white' size={15} />
+                </div>
+                <span className={`text-[#161616] ${inter.className} mb-3 font-normal text-[18px]`}>{item}</span>
               </div>
-              <p className={`text-[27px] sm:text-[32px] font-normal text-[#606060] mb-4`}>
-                Your Strategy is Broken Down into a{' '}
-                <span className={`text-[25px] sm:text-[32px] font-normal text-[#14A5FF]`}>Machine-Readable</span> Algorithm
-              </p>
-              <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[17px] sm:text-[18px]`}>
-                Your trading approach is first broken down into clear instructions that an algorithm can execute.
-              </p>
-              <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[18px]`}>This means defining:</p>
-              <ul className="space-y-2">
-                {[
-                  'Precise entry and exit conditions',
-                  'Indicator or price-action triggers',
-                  'Position sizing rules',
-                  'Stop-loss, take-profit, and risk constraints'
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start mb-0 ">
-                    {/* <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span> */}
-                    <div className=' h-[20px] w-[20px] rounded-full bg-[#14A5FF] p-0.5 mr-3' ><Check color='white ' size={15} /></div>
-                    <span className={`text-[#161616] ${inter.className} mb-3 font-normal  text-[18px]`}>{item}</span>
-                  </div>
-                ))}
-              </ul>
-              <p className={`text-[#161616] ${inter.className}  font-normal w-full  text-[16px]  sm:text-[18px]`}>
-                Nothing in the system is discretionary or ambiguous — every rule is defined exactly as you intend.
-              </p>
-            </div>
+            ))}
+          </ul>
+          <p className={`text-[#161616] ${inter.className} font-normal w-full text-[16px] sm:text-[18px]`}>
+            {d.text[2]}
+          </p>
+        </div>
 
-            {/* Step 2 */}
-            <div className="bg-[#454545] w-full sm:w-[40%]  rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up flex items-center justify-center">
-              <div className="text-center">
-                <p className={`text-[16px] font-medium ${poppins.className} text-white text-sm mb-4`}>Next Step</p>
-                <span className={`text-8xl sm:text-[80px] ${poppins.className} font-medium text-white`}>#2</span>
-              </div>
-            </div>
+        {/* Step 2 */}
+        <div className="bg-[#454545]  w-[80%] sm:w-[30%] rounded-2xl p-8 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up flex items-center justify-center">
+          <div className="text-center">
+            <p className={`text-[16px] font-medium ${poppins.className} text-white text-sm mb-4`}>Next Step</p>
+            <span className={`text-8xl sm:text-[80px] ${poppins.className} font-medium text-white`}>{d.next}</span>
           </div>
         </div>
+      </div>
+    </div>
+  ))}
+</div>
+          
+        </div>
       </section>
-      </ScrollAnimate>
+     
+
+    
 
        {/* algosutra text */}
       <ScrollAnimate duration={2} >
-         <section className="w-full h-[90vh] flex items-center py-20 px-4 sm:px-6 lg:px-8">
+         <section className="w-full h-[32vh] sm:h-[25vh] flex items-center py-20 px-[14px] md:px-[36px] ">
 
         <p className={`text-[56px] text-[#606060] ${poppins.className} `}>AlgoSutraa Helps <span className={` text-[78px] font-[700] text-[#1A73E8] ${caveat.className} `}>Everyone</span> </p>
 
@@ -164,6 +287,22 @@ const LandingPageScreen = () => {
         <ScrollAnimate>
             <ContactUsCard/> 
         </ScrollAnimate>
+
+        <div className=' absolute top-0 h-[100vh] flex  flex-col z-50  items-baseline justify-end w-full  '>
+
+          <svg className="arrows">
+              <path className="a1" d="M0 0 L30 32 L60 0"></path>
+              <path className="a2" d="M0 20 L30 52 L60 20"></path>
+              <path className="a3" d="M0 40 L30 72 L60 40"></path>
+            </svg>
+
+            <div className='  w-full pb-6 md:pb-30 flex justify-end px-10 md:px-20'>
+              <Image className=' h-15 w-15 md:w-18 md:h-18 ' width={80} height={80} src={"/img/whtsapp.png"} alt={''}/>
+            </div>
+
+            
+
+        </div>
           
        
      

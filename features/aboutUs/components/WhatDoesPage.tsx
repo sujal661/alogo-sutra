@@ -45,7 +45,7 @@ export default function WhatAlgosutraaDoes() {
   }, []);
 
   return (
-    <div className="  py-16 px-8">
+    <div className="  pt-10 pb-3 px-8">
       <div className=" mx-auto">
         {/* Title */}
         <div className="mb-6 animate-on-scroll" id="title">
@@ -77,7 +77,7 @@ export default function WhatAlgosutraaDoes() {
                 </div>
                 <div className="flex justify-center">
                   <div className="relative group">
-                   <Image src={'/img/bulb.png'} alt={''} height={300} width={200} className='transform scale-359 translate-y-16 '/>
+                   <Image src={'/img/bulb.png'} alt={''} height={300} width={200} className='transform scale-499  md:scale-399 translate-y-16 '/>
                     
                   </div>
                 </div>
@@ -103,7 +103,7 @@ Our ready-made algorithms come with clear logic, defined rules, and real-market 
                 </div>
                 <div className="flex justify-center">
                   <div className="relative group">
-                   <Image src={'/img/candle.png'} alt={''} height={300} width={200} className='transform scale-325 translate-y-16 '/>
+                   <Image src={'/img/candle.png'} alt={''} height={300} width={200} className='transform scale-599 md:scale-399 translate-y-16 '/>
                     
                   </div>
                 </div>
@@ -136,7 +136,7 @@ With Dr. Algo, we build your algorithm from the ground up — and also help you 
                 </div>
                 <div className="flex justify-center">
                   <div className="relative group">
-                   <Image src={'/img/helmet.png'} alt={''} height={300} width={200} className='transform md:scale-190 md:-translate-y-0 '/>
+                   <Image src={'/img/helmet.png'} alt={''} height={300} width={200} className='transform scale-179 md:scale-190 md:-translate-y-0 '/>
                     
                   </div>
                 </div>

@@ -19,10 +19,13 @@ const Navbar = () => {
   const pathname = usePathname()
 
   const navItems = [
-    { name: "Training", href: "/landingPage" },
-    { name: "Plans", href: "/plans" },
-    { name: "Products", href: "/products" },
+    { name: "Home", href: "/landingPage" },
     { name: "About", href: "/aboutUs" },
+    { name: "Products", href: "/products" },
+    { name: "Training", href: "/training" },
+    { name: "Plans", href: "/plans" },
+    
+    
   ];
 
   useEffect(() => {
@@ -35,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`absolute mt-[20px] top-0 left-0 right-0 z-70   transition-all duration-300 
+      className={`absolute mt-[20px] top-0 left-0 right-0 z-70 px-[14px] md:px-[36px]   transition-all duration-300 
         ${
         isScrolled
           // ? "backdrop-blur-sm bg-white/10 border border-white/40 shadow-2xl"
@@ -43,10 +46,10 @@ const Navbar = () => {
       }`
     }
     >
-      <div className=" w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" w-full mx-auto  ">
         <div className="flex justify-between items-center ">
           {/* Logo */}
-          <div className="flex  items-center space-x-2 animate-fade-in">
+          <div className="flex  items-center  animate-fade-in">
             {/* <span className="text-xl md:text-2xl font-bold text-gray-800">
                 ALGO<span className="text-teal-500">SUTRAA</span>
               </span> */}
@@ -81,7 +84,7 @@ const Navbar = () => {
 
           <Link href={"/contactUs"}>
 
-           <button className={`bg-[#1A73E8] ${poppins.className} font-500 text-[14px] md:text-[16px] h-[40px] md:h-[50px] px-[24px] py-[13px] justify-center items-center flex hover:bg-blue-700 text-white  rounded-full transition-all duration-300 transform   `}>
+           <button className={`bg-[#1A73E8] ${poppins.className}  hidden  md:block  font-500 text-[14px] md:text-[16px] h-[40px] md:h-[50px] px-[24px] py-[13px] justify-center items-center flex hover:bg-blue-700 text-white  rounded-full transition-all duration-300 transform   `}>
             Contact Us
           </button>
           </Link>

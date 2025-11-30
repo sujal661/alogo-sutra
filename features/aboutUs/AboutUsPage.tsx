@@ -35,6 +35,9 @@ export default function AboutUsPage() {
 });
   const sectionRef = useRef(null);
 
+
+  
+
  
   
  
@@ -62,7 +65,7 @@ export default function AboutUsPage() {
       {/* Hero Section */}
       
         
-      <div className="  mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="  mx-auto  px-[14px] md:px-[36px] pt-8">
         
         <div className="text-center mb-5 bg-dots-wave animate-on-scroll" id="hero">
           <ScrollAnimate>
@@ -117,7 +120,7 @@ export default function AboutUsPage() {
 
        {/* Values Section */}
        <ScrollAnimate type="fade-down">
-       <p className={` text-[39px] md:text-[56px] font-normal ${poppins.className} text-[#606060] px-8 mt-20 `}>Our Values</p>
+       <p className={` text-[39px] md:text-[56px] font-normal ${poppins.className} text-[#606060] px-8 mt-10 `}>Our Values</p>
         <div className="mt-5 px-8 grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll" id="values">
           
           {[

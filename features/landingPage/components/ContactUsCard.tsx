@@ -22,8 +22,8 @@ const caveat = Caveat({
 
 const ContactUsCard = () => {
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-8">
-      <div className=" mx-auto">
+    <section className="py-10 px-[14px] md:px-[36px] ">
+      <div className=" ">
         <div className="relative bg-[#1A73E8] rounded-3xl shadow-2xl overflow-hidden animate-fade-in">
           {/* Decorative Background Elements */}
           <div className="absolute inset-0 overflow-hidden">

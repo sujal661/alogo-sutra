@@ -6,11 +6,16 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "picsum.photos",
+         
       },
     ],
   },
+  
 };
 
 export default nextConfig;
+
+;
+
 
 

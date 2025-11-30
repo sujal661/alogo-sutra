@@ -85,14 +85,14 @@ const Footer = () => {
           </div>
 
           {/* Menu Column */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div className="animate-fade-in  flex flex-col justify-center items-center " style={{ animationDelay: '0.1s' }}>
             <h4 className={` text-[18px] md:text-[20px] font-medium text-[#000000] mb-4`}>Menu</h4>
             <ul className="space-y-3">
               {menuLinks.map((link, index) => (
-                <li key={link.name} className={`animate-slide-in ${roboto.className} text-[20px] font-medium `} style={{ animationDelay: `${0.15 + index * 0.05}s` }}>
+                <li key={link.name} className={`animate-slide-in ${roboto.className} text-center text-[20px] font-medium `} style={{ animationDelay: `${0.15 + index * 0.05}s` }}>
                   <a
                     href={link.href}
-                    className={`text-gray-600  text-[16px] md:text-[18px] hover:text-teal-500 ${roboto.className} transition-colors duration-200 hover:translate-x-1 inline-block`}
+                    className={`text-gray-600   text-[16px] md:text-[18px] hover:text-teal-500 ${roboto.className} transition-colors duration-200 hover:translate-x-1 inline-block`}
                   >
                     {link.name}
                   </a>
@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Link Column */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="animate-fade-in text-center " style={{ animationDelay: '0.2s' }}>
             <h4 className={`text-[18px] md:text-[20px] font-medium text-[#000000] mb-4`}>Quick Link</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
@@ -119,7 +119,7 @@ const Footer = () => {
           </div>
 
           {/* Menu Column (Duplicate) */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-fade-in text-center " style={{ animationDelay: '0.3s' }}>
             <h4 className={`text-[18px] md:text-[20px] font-medium text-[#000000] mb-4`}>Menu</h4>
             <ul className="space-y-3">
               {menuLinks.map((link, index) => (

@@ -64,11 +64,11 @@ export default function MeetTheTeam() {
 
                   {/* IMAGE */}
                   <div className="relative overflow-hidden">
-                    <div className="aspect-[3/4] h-[350px] relative">
+                    <div className=" h-[350px] relative">
                       <img
-                        src={`/img/man.png`}
+                        src={`/img/userimg.jpg`}
                         alt={member.name}
-                        className="w-full h-[350px] scale-x-160 object-cover mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500"
+                        className="w-full h-[350px] scale-135 translate-x-11  object-cover mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500"
                       />
                     </div>
                   </div>

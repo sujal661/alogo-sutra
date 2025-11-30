@@ -80,20 +80,20 @@ export default function ComingSoon({
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-200 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10 space-y-12">
+      <div className="max-w-4xl mx-auto pt-25 text-center relative z-10 space-y-12">
         
         {/* Icon/Logo */}
         <div className="animate-on-scroll" id="title">
-          <div className={`inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-2xl mb-8 transition-all duration-1000 ${isVisible.title ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`}>
+          <div className={`inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-2xl mb-2 transition-all duration-1000 ${isVisible.title ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 rotate-180'}`}>
             <Clock className="w-12 h-12 text-white animate-pulse" />
           </div>
         </div>
 
         {/* Main Heading */}
         <div className="animate-on-scroll" id="title">
-          <h1 className={`text-5xl md:text-7xl font-bold text-gray-900 mb-6 transition-all duration-1000 delay-200 ${isVisible.title ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold text-gray-900 mb-4 transition-all duration-1000 delay-200 ${isVisible.title ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Something Amazing is
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 py-5 to-purple-600 bg-clip-text text-transparent">
               Coming Soon
             </span>
           </h1>

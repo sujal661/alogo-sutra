@@ -322,18 +322,18 @@ export default function ContactUsPage() {
             Contact Information
           </h2>
 
-          <div className={`md:grid md:grid-cols-1 ${poppins.className} flex-col items-center  justify-center md:grid-cols-3 gap-6 lg:gap-8`}>
+          <div className={`md:grid md:grid-cols-1 ${poppins.className} flex-col items-center  justify-center md:grid-cols-3 md:px-7 gap-1 lg:gap-2`}>
             {/* Office Address */}
-            <div className="flex  flex-row items-start justify-start md:justify-center gap-4  group">
-              <div className="p-4 rounded-full mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+            <div className="flex mb-4  flex-row items-start justify-start md:justify-center gap-4  group">
+              <div className="px-2 rounded-full mb-4  transition-all duration-300 group-hover:scale-110">
                 <MapPin   className="w-6 h-6 bg-transparent text-white " />
               </div>
               <div>
 
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="md:text-[18] font-semibold text-white mb-2">
                 Office Address
               </h3>
-              <p className={`${inter.className} text-blue-100 text-sm `}>
+              <p className={`${inter.className} text-blue-100 md:text-[18px] `}>
                 Al Marzouqi Building, Office No. 214, Al Goze
                 <br />
                 First, Sheikh Zayed Road, Dubai, UAE
@@ -344,15 +344,15 @@ export default function ContactUsPage() {
             </div>
 
             {/* Email */}
-            <div className="flex flex-row   items-start justify-start md:justify-center gap-4  group">
-              <div className=" p-4 rounded-full mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+            <div className="flex flex-row mb-4   h-full items-start justify-start md:justify-center gap-4  group">
+              <div className=" px-2 rounded-full mb-4  transition-all duration-300 group-hover:scale-110">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
+                  <h3 className="md:text-[18] font-semibold text-white mb-2">Email</h3>
               <a
                 href="mailto:info@algosutraa.com"
-                className={`${inter.className} text-blue-100 hover:text-white transition-colors duration-200 text-sm`}
+                className={`${inter.className} text-blue-100 hover:text-white transition-colors duration-200 md:text-[18px]`}
               >
                 info@algosutraa.com
               </a>
@@ -361,17 +361,17 @@ export default function ContactUsPage() {
             </div>
 
             {/* Phone Number */}
-            <div className="flex flex-row items-start justify-start md:justify-center gap-4  group">
-              <div className=" p-4 rounded-full mb-4 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-110">
+            <div className="flex flex-row h-full items-start justify-start md:justify-center gap-4  group">
+              <div className=" px-2 rounded-full mb-4  transition-all duration-300 group-hover:scale-110">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
-                 <h3 className="text-lg font-semibold text-white mb-2">
+                 <h3 className="md:text-[18] font-semibold text-white mb-2">
                 Phone Number
               </h3>
               <a
                 href="tel:+971502584173"
-                className={`text-blue-100 hover:text-white transition-colors duration-200 ${inter.className} text-sm`}
+                className={`text-blue-100 hover:text-white transition-colors duration-200 ${inter.className} md:text-[18]`}
               >
                 +971 502584173
               </a>

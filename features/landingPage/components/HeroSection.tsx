@@ -38,7 +38,7 @@ const HeroSection = () => {
         <div className="max-full mx-auto  px-0 relative z-10">
           <div className="w-full text-center px-4 mb-7">
             {/* Main Heading with Staggered Animation */}
-            <p className={` text-[64px] ${poppins.className} font-[400] sm:text-5xl md:text-6xl lg:text-[64px] font-normal text-[#161616]  animate-slide-up opacity-0`}>
+            <p className={` text-[64px] leading-19  ${poppins.className} font-[400] sm:text-5xl mb-0 md:text-6xl lg:text-[64px] font-normal text-[#161616]  animate-slide-up opacity-0`}>
               Algorithmic Trading
             </p>
             
