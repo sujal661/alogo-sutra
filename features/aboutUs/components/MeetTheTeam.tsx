@@ -1,6 +1,19 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { Linkedin, Facebook } from 'lucide-react';
+import { Caveat, Inter, Poppins } from 'next/font/google';
+
+ const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-poppins",
+  });
+  
+  const inter = Inter({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-inter",
+  });
 
 export default function MeetTheTeam() {
   const [isVisible, setIsVisible] = useState({
@@ -57,18 +70,17 @@ export default function MeetTheTeam() {
   ];
 
   return (
-    <div className=" px-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 py-16 px-4">
+    <div className="  py-16 ">
       <div className="  mx-auto">
         {/* Title */}
-        <div className="mb-16 animate-on-scroll" id="title">
-          <h1 className={`text-4xl md:text-7xl font-normal text-[#606060] transition-all duration-1000 ${isVisible.title ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Meet The Team
-          </h1>
+        <div className="mb-8 animate-on-scroll" id="title">
+                <p className={` text-[39px] md:text-[56px] font-normal ${poppins.className} px-8 text-[#606060]  mt-20 `}>Meet The Team</p>
+
         </div>
 
         {/* Team Grid */}
-         <div className=' flex w-full  '>
-        <div className="w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         <div className=' flex w-full  px-6 '>
+        <div className="w-[100%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
            
 
             
@@ -82,15 +94,18 @@ export default function MeetTheTeam() {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Image Container with Colored Background */}
-                <div className={`relative bg-gradient-to-br ${member.bgColor} overflow-hidden`}>
-                  <div className="aspect-[3/4] relative">
+                <div className={`relative bg- overflow-hidden`}>
+                  <div className='absolute  h-[350px] w-[200px]'></div>
+                  <div className="aspect-[3/4] h-[350px] relative">
+
+
                     <img 
-                      src={`https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&q=80`}
+                      src={`/img/man.png`}
                       alt={member.name}
-                      className="w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
+                      className="w-full h-[350px]  scale-x-160 object-cover mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                     />
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
                   </div>
                 </div>
 

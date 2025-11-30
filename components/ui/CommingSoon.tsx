@@ -71,7 +71,7 @@ export default function ComingSoon({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 py-16 relative overflow-hidden">
+    <div className="min-h-screen pb-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 py-16 relative overflow-hidden">
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -117,13 +117,13 @@ export default function ComingSoon({
             ].map((item, index) => (
               <div 
                 key={item.label}
-                className="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-110 transition-all duration-300"
+                className="bg-white rounded-2xl shadow-xl p-2 md:p-6 transform hover:scale-110 transition-all duration-300"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-[20px] md:text-5xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {String(item.value).padStart(2, '0')}
                 </div>
-                <div className="text-sm md:text-base text-gray-500 font-medium mt-2">
+                <div className="text-[13px] md:text-base text-gray-500 font-medium mt-2">
                   {item.label}
                 </div>
               </div>

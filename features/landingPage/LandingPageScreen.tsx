@@ -8,25 +8,47 @@ import ContactUsCard from './components/ContactUsCard';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import HeroSection from './components/HeroSection';
+import { Poppins,Caveat,Inter } from "next/font/google";
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import ScrollAnimate from '@/components/animations/ScrollAnimate';
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-caveat",
+});
 
 const LandingPageScreen = () => {
  
 
   return (
-    <div className=" w-full min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100">
-      {/* Navigation */}
+    <div className=" w-full min-h-screen bg-[#F0F0F0]">
+     
      
 
       {/* Hero Section */}
     <HeroSection/>
 
       {/* Why Algo Trading Section */}
+      <ScrollAnimate>
       <section className=" px-4 sm:px-6 lg:px-8 ">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#606060] mb-8 animate-slide-up">
+          <p className={`text-3xl sm:text-4xl md:text-[32px] ${poppins.className} font-medium text-[#606060] mb-6 animate-slide-up`}>
             Why Algo Trading?
-          </h2>
-          <p className="text-base sm:text-lg text-[#161616]  leading-relaxed animate-fade-in">
+          </p>
+          <p className={`text-base sm:text-[18px] font-[400] text-[#161616] ${inter.className} leading-relaxed animate-fade-in`}>
             Manual trading, no matter how skilled you are, is naturally limited by emotion, timing pressure,
             and the challenge of staying consistent. Algorithmic trading removes these constraints by turning
             your trading logic into a precise and repeatable system. It gives you the ability to test strategies
@@ -36,28 +58,30 @@ const LandingPageScreen = () => {
           </p>
         </div>
       </section>
+      </ScrollAnimate>
 
       {/* How It Works Section */}
+      <ScrollAnimate>
       <section className="w-full  py-20 px-4 sm:px-6 lg:px-8">
         <div className=" mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-7xl font-normal text-[#606060] mb-16 animate-slide-up">
+          <p className={`text-[38px] sm:text-4xl md:text-[56px] ${poppins.className}  font-normal text-[#606060] mb-9 animate-slide-up`}>
             How Does Algorithmic<br />Trading Function
-          </h2>
+          </p>
 
-          <div className=" flex flex-row gap-4 lg:gap-12">
+          <div className=" flex sm:flex-row flex-col gap-4 lg:gap-12">
             {/* Step 1 */}
-            <div className="w-[70%] text-3xl bg-white rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+            <div className=" w-full sm:w-[75%] text-3xl bg-white rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
               <div className="flex items-start mb-4">
-                <span className="text-5xl font-bold text-gray-300 mr-4">#1</span>
+                <span className={`text-[32px] font-semibold ${poppins.className} text-[#606060] mr-4`}>#1</span>
               </div>
-              <h3 className="text-xl sm:text-5xl font-medium text-gray-800 mb-4">
+              <p className={`text-[27px] sm:text-[32px] font-normal text-[#606060] mb-4`}>
                 Your Strategy is Broken Down into a{' '}
-                <span className="text-blue-600">Machine-Readable</span> Algorithm
-              </h3>
-              <p className="text-gray-600 mb-6">
+                <span className={`text-[25px] sm:text-[32px] font-normal text-[#14A5FF]`}>Machine-Readable</span> Algorithm
+              </p>
+              <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[17px] sm:text-[18px]`}>
                 Your trading approach is first broken down into clear instructions that an algorithm can execute.
               </p>
-              <p className="text-gray-700 font-medium mb-3">This means defining:</p>
+              <p className={`text-[#161616] ${inter.className} mb-6 font-normal text-[18px]`}>This means defining:</p>
               <ul className="space-y-2">
                 {[
                   'Precise entry and exit conditions',
@@ -65,60 +89,84 @@ const LandingPageScreen = () => {
                   'Position sizing rules',
                   'Stop-loss, take-profit, and risk constraints'
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center ">
+                  <div key={index} className="flex items-start mb-0 ">
                     {/* <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></span> */}
-                    <div className=' rounded-full bg-blue-500 p-0.5 mr-4' ><Check color='white' /></div>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
+                    <div className=' h-[20px] w-[20px] rounded-full bg-[#14A5FF] p-0.5 mr-3' ><Check color='white ' size={15} /></div>
+                    <span className={`text-[#161616] ${inter.className} mb-3 font-normal  text-[18px]`}>{item}</span>
+                  </div>
                 ))}
               </ul>
-              <p className="text-gray-600 mt-4 text-2xl">
+              <p className={`text-[#161616] ${inter.className}  font-normal w-full  text-[16px]  sm:text-[18px]`}>
                 Nothing in the system is discretionary or ambiguous — every rule is defined exactly as you intend.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="bg-gradient-to-br w-[30%] from-gray-700 to-gray-900 rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up flex items-center justify-center">
+            <div className="bg-[#454545] w-full sm:w-[40%]  rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up flex items-center justify-center">
               <div className="text-center">
-                <p className="text-gray-400 text-sm mb-4">Next Step</p>
-                <span className="text-8xl sm:text-9xl font-bold text-white">#2</span>
+                <p className={`text-[16px] font-medium ${poppins.className} text-white text-sm mb-4`}>Next Step</p>
+                <span className={`text-8xl sm:text-[80px] ${poppins.className} font-medium text-white`}>#2</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+      </ScrollAnimate>
 
        {/* algosutra text */}
-      <section className="w-full h-[50vh] flex items-center py-20 px-4 sm:px-6 lg:px-8">
+      <ScrollAnimate duration={2} >
+         <section className="w-full h-[90vh] flex items-center py-20 px-4 sm:px-6 lg:px-8">
 
-        <p className=' text-7xl text-[#606060]'>AlgoSutraa Helps <span className='text-[#14A5FF]'>Everyone</span> </p>
+        <p className={`text-[56px] text-[#606060] ${poppins.className} `}>AlgoSutraa Helps <span className={` text-[78px] font-[700] text-[#1A73E8] ${caveat.className} `}>Everyone</span> </p>
 
       </section>
+      </ScrollAnimate>
+       
+      
+      
 
 
         
      
 
         {/* <LearningResourceCards/> */}
-          <LearningResourceCards/>
+        <ScrollAnimate>
+           <LearningResourceCards/> 
+        </ScrollAnimate>
+        
+        
+        
+          
      
 
        {/* Review Section */}
    
-
-        <ReviewCardsPage/>
+       <ScrollAnimate>
+           <ReviewCardsPage/>
+       </ScrollAnimate>
+      
+     
+       
 
    
 
       {/* FAQ Section */}
+      <ScrollAnimate>
+         <FaqPage/>
+      </ScrollAnimate>
+         
+     
       
-        <FaqPage/>
       
 
 
       {/* ContactUs Card */}
-    
-        <ContactUsCard/>
+        <ScrollAnimate>
+            <ContactUsCard/> 
+        </ScrollAnimate>
+          
+       
+     
     
 
 

@@ -1,6 +1,19 @@
 "use client"
 import React from 'react';
 import { Star } from 'lucide-react';
+import { Poppins,Caveat,Inter } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+});
 
 const ReviewCardsPage = () => {
   const testimonials = [
@@ -38,44 +51,44 @@ const ReviewCardsPage = () => {
       <div className=" mx-auto">
         {/* Header */}
         <div className="mb-12 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl md:text-8xl font-normal text-gray-800">
+          <h2 className={`text-[38px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}>
             How Traders Benefit<br />
             With AlgoSutraa
           </h2>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
+              className="bg-white   rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
               style={{
                 animationDelay: `${index * 0.15}s`
               }}
             >
               {/* User Info */}
-              <div className="flex items-center mb-4">
-                <div className={`w-15 h-15 text-2xl rounded-full bg-gradient-to-br ${testimonial.color} flex items-center justify-center text-white font-bold text-lg mr-3 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="flex items-center mb-2">
+                <div className={`w-[48px] h-[48px] text-2xl rounded-full ${poppins.className} bg-gradient-to-br ${testimonial.color} flex items-center justify-center text-white font-bold text-lg mr-3 group-hover:scale-110 transition-transform duration-300`}>
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <h3 className="font-bold text-2xl text-gray-800 ">
+                  <p className={`font-bold sm:text-[18px] text-[16px] text-gray-800 ${poppins.className} `}>
                     {testimonial.name}
-                  </h3>
-                  <p className="text-gray-500 text-xl">
+                  </p>
+                  <p className="sm:text-[18px] text-[16px] text-[#606060] ">
                     {testimonial.role}
                   </p>
                 </div>
               </div>
 
               {/* Star Rating */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 h-[25px] mb-2">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
                     size={18}
-                    className="fill-yellow-400 h-8 w-8 text-yellow-400 animate-star-pop"
+                    className="fill-yellow-400 h-[25px] w-8 text-yellow-400 animate-star-pop"
                     style={{
                       animationDelay: `${(index * 0.15) + (i * 0.1)}s`
                     }}
@@ -84,7 +97,10 @@ const ReviewCardsPage = () => {
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-gray-600 text-2xl leading-relaxed italic">
+              <p 
+              key={testimonial.id}
+              style={{fontStyle:'italic'}}
+              className={`text-gray-600 line-clamp-5 text-[15px] sm:text-[17px] md:text-[20px] ${inter.className} hover:line-clamp-none  leading-relaxed `}>
                 "{testimonial.text}"
               </p>
 

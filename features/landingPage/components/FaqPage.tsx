@@ -1,6 +1,20 @@
 "use client"
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Poppins,Caveat,Inter } from "next/font/google";
+import Image from 'next/image';
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+});
 
 const FaqPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -43,21 +57,21 @@ const FaqPage = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 ">
+    <section  className="py-16 px-4 sm:px-6 lg:px-8 ">
       <div className=" mx-auto">
         {/* Header */}
         <div className="mb-12 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl md:text-7xl font-normal text-[#606060]">
+          <p className={`text-[39px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}>
             Frequently Asked Questions
-          </h2>
+          </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className=" text-2xl font-bold space-y-4">
+        <div className=" text-[20px] font-bold space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden animate-slide-up"
+              className="  hover:shadow-lg transition-all duration-300 overflow-hidden animate-slide-up"
               style={{
                 animationDelay: `${index * 0.1}s`
               }}
@@ -65,9 +79,9 @@ const FaqPage = () => {
               {/* Question Button */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200 group"
+                className="w-full px-6 py-5 flex items-center justify-between text-left  transition-colors duration-200 group"
               >
-                <span className=" sm:text-2xl font-medium text-gray-800 pr-4 group-hover:text-blue-600 transition-colors duration-200">
+                <span className=" text-[18px] sm:text-[20px] font-medium text-[#161616] pr-4  transition-colors duration-200">
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 transform transition-transform duration-300 ${
@@ -90,12 +104,18 @@ const FaqPage = () => {
               >
                 <div className="px-6 pb-5 pt-2">
                   <div className="border-t border-gray-200 pt-4">
-                    <p className="text-[#606060] font-medium leading-relaxed">
+                    <p className={`text-[#606060] text-[16px] sm:text-[18px] font-normal leading-relaxed ${inter.className} `}>
                       {faq.answer}
                     </p>
+                 
                   </div>
+                  <hr />
                 </div>
+
+               
               </div>
+
+              <div className='h-[1px] bg-gray-500 w-full'></div>
             </div>
           ))}
         </div>
