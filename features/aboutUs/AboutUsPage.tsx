@@ -140,9 +140,9 @@ export default function AboutUsPage() {
         </ScrollAnimate>
 
         {/* Meet The Team */}
-        <ScrollAnimate>
+       
            <MeetTheTeam/>
-        </ScrollAnimate>
+     
        
 
         {/* Vision Page */}
