@@ -130,9 +130,9 @@ const LandingPageScreen = () => {
      
 
         {/* <LearningResourceCards/> */}
-        <ScrollAnimate>
+        
            <LearningResourceCards/> 
-        </ScrollAnimate>
+       
         
         
         
@@ -141,7 +141,7 @@ const LandingPageScreen = () => {
 
        {/* Review Section */}
    
-       <ScrollAnimate>
+       <ScrollAnimate >
            <ReviewCardsPage/>
        </ScrollAnimate>
       

@@ -140,7 +140,7 @@ export default function AboutUsPage() {
         </ScrollAnimate>
 
         {/* Meet The Team */}
-        <ScrollAnimate delay={0.6}>
+        <ScrollAnimate>
            <MeetTheTeam/>
         </ScrollAnimate>
        
