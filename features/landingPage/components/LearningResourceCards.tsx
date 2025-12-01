@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 // import { Button } from '@/components/ui/button';
 // import React, { useState } from 'react';
@@ -47,9 +47,9 @@
 //               <button
 //                 key={filter}
 //                 onClick={() => setActiveFilter(filter)}
-//                 className={`px-6 py-2.5 text-2xl rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+//                 className={`px-6 py-2.5 text-2xl rounded-full font-medium transition-all duration-300 transform  ${
 //                   activeFilter === filter
-//                     ? 'bg-blue-500 text-white shadow-lg'
+//                     ? 'bg-blue-500 text-white '
 //                     : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-blue-300'
 //                 }`}
 //                 style={{
@@ -67,7 +67,7 @@
 //           {filteredArticles.map((article, index) => (
 //             <div
 //               key={article.id}
-//               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group animate-slide-up"
+//               className="bg-white rounded-2xl  hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group animate-slide-up"
 //               style={{
 //                 animationDelay: `${index * 0.15}s`
 //               }}
@@ -90,7 +90,7 @@
 //                 </p>
 
 //                 {/* Read Article Button */}
-//                 <button className="w-full py-3 px-6 border-3 border-black text-black font-600 text-[20px] rounded-full font-medium hover:bg-gray-800 hover:text-white transition-all duration-300 transform group-hover:scale-105">
+//                 <button className="w-full py-3 px-6 border-3 border-black text-black font-600 text-[20px] rounded-full font-medium hover:bg-gray-800 hover:text-white transition-all duration-300 transform ">
 //                   Read Article
 //                 </button>
 //               </div>
@@ -104,7 +104,7 @@
 //             Explore Complete Library
 //           </button> */}
 //           <Button className='w-[35%] p-8 text-2xl rounded-full'>
-//              Explore Complete Library 
+//              Explore Complete Library
 //           </Button>
 //         </div>
 //       </div>
@@ -170,12 +170,11 @@
 
 // export default LearningResourceCards;
 
+import { Button } from "@/components/ui/button";
 
-import { Button } from '@/components/ui/button';
-
-import React, { useState } from 'react';
-import { Poppins,Caveat,Inter } from "next/font/google";
-import Image from 'next/image';
+import React, { useState } from "react";
+import { Poppins, Caveat, Inter } from "next/font/google";
+import Image from "next/image";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -190,40 +189,48 @@ const inter = Inter({
 });
 
 const LearningResourceCards = () => {
-  const [activeFilter, setActiveFilter] = useState('Beginner');
+  const [activeFilter, setActiveFilter] = useState("Beginner");
 
-  const filters = ['Beginner', 'Experienced', 'Advanced'];
+  const filters = ["Beginner", "Experienced", "Advanced"];
 
   const articles = [
     {
       id: 1,
-      title: 'Manual vs Algo Trading: What Changes and What Stays the Same?',
-      description: 'Understanding how algorithmic execution builds on your existing trading approach without ...',
-      level: 'Beginner'
+      title: "Manual vs Algo Trading: What Changes and What Stays the Same?",
+      description:
+        "Understanding how algorithmic execution builds on your existing trading approach without ...",
+      level: "Beginner",
     },
     {
       id: 2,
-      title: 'What Actually Happens Inside an Algorithmic Trade?',
-      description: 'A clear walkthrough of the decision-making, signal checks, and execution steps behind every automated trade.',
-      level: 'Beginner'
+      title: "What Actually Happens Inside an Algorithmic Trade?",
+      description:
+        "A clear walkthrough of the decision-making, signal checks, and execution steps behind every automated trade.",
+      level: "Beginner",
     },
     {
       id: 3,
-      title: 'How MT5 Executes Algorithmic Strategies',
-      description: 'A practical introduction to how MT5 handles data, runs Expert Advisors, and executes algorithmic trades behind the scenes.',
-      level: 'Beginner'
-    }
+      title: "How MT5 Executes Algorithmic Strategies",
+      description:
+        "A practical introduction to how MT5 handles data, runs Expert Advisors, and executes algorithmic trades behind the scenes.",
+      level: "Beginner",
+    },
   ];
 
-  const filteredArticles = articles.filter(article => article.level === activeFilter);
+  const filteredArticles = articles.filter(
+    (article) => article.level === activeFilter
+  );
 
   return (
-    <section className="   overflow-x-hidden  pt-14  px-[14px] md:px-[36px] ">
+    <section className="   overflow-x-hidden  pt-14  px-3.5 md:px-9 ">
       <div className="">
         {/* Header */}
         <div className="mb-10  animate-fade-in">
-          <h2 className={`text-3xl sm:text-4xl md:text-[56px] font-normal ${poppins.className} text-[#606060] mb-0`}>
-            Explore the Algosutraa<br />
+          <h2
+            className={`text-3xl sm:text-4xl md:text-[56px] font-normal ${poppins.className} text-[#606060] mb-0`}
+          >
+            Explore the Algosutraa
+            <br />
             Learning Resources
           </h2>
 
@@ -233,13 +240,15 @@ const LearningResourceCards = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-[16px] py-[4px] text-[16px] ${poppins.className} flex justify-center items-center h-[30px] sm:h-[32px] rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`px-4 py-1 text-[16px] ${
+                  poppins.className
+                } flex justify-center items-center h-[30px] sm:h-8 rounded-full font-medium transition-all duration-300 transform  ${
                   activeFilter === filter
-                    ? 'bg-[#14A5FF] text-white shadow-lg'
-                    : 'bg-white text-[#606060] border-2 border-[#606060] hover:border-blue-300'
+                    ? "bg-[#14A5FF] text-white "
+                    : "bg-white text-[#606060] border-2 border-[#606060] hover:border-blue-300"
                 }`}
                 style={{
-                  animation: `slide-in 0.5s ease-out ${index * 0.1}s backwards`
+                  animation: `slide-in 0.5s ease-out ${index * 0.1}s backwards`,
                 }}
               >
                 {filter}
@@ -253,31 +262,44 @@ const LearningResourceCards = () => {
           {filteredArticles.map((article, index) => (
             <div
               key={article.id}
-              className="bg-white rounded-2xl lg:mb-0 mb-5 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group animate-slide-up"
+              className="bg-white rounded-2xl lg:mb-0 mb-5   transition-all duration-500  overflow-hidden group animate-slide-up p-4"
               style={{
-                animationDelay: `${index * 0.15}s`
+                animationDelay: `${index * 0.15}s`,
               }}
             >
               {/* Card Image Placeholder - FIXED: Added 'relative' */}
-              <div className="relative h-[294px] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+              <div className="relative h-[294px]  overflow-hidden  flex items-center justify-center bg-linear-to-br from-gray-100 to-gray-200 rounded">
                 {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 border-4 border-gray-300 rounded-lg transform rotate-12 group-hover:rotate-45 group-hover:scale-110 transition-all duration-500"></div>
                 </div> */}
-                <Image src={'https://picsum.photos/200/30'} alt={''} fill/>
+                <Image
+                  src={"/img/graphicCard.png"}
+                  alt={"horse image for placeholder"}
+                  className="aspect-square "
+                  width={200}
+                  height={200}
+                  // fill
+                />
               </div>
 
               {/* Card Content */}
               <div className="p-6">
-                <h3 className={` text-[18px]  sm:mb-0 sm:text-[24px] line-clamp-3  sm:line-clamp-2 font-400 text-[#606060] ${poppins.className} mb-2 min-h-[3.5rem] leading-tight`}>
+                <h3
+                  className={` text-[18px]  sm:mb-0 sm:text-[24px] line-clamp-3  sm:line-clamp-2 font-400 text-[#606060] ${poppins.className} mb-2 min-h-14 leading-tight`}
+                >
                   {article.title}
                 </h3>
-                <p   className={` text-[16px] line-clamp-2 text-[#161616] ${inter.className} font-400  sm:text-[18px] mb-7 min-h-[3rem] leading-relaxed  `}>
+                <p
+                  className={` text-[16px] line-clamp-2 text-[#161616] ${inter.className} font-400  sm:text-[18px] mb-7 min-h-12 leading-relaxed  `}
+                >
                   {article.description}
                 </p>
 
                 {/* Read Article Button */}
-                <button className={`w-full h-[40px] sm:h-[50px] py-[10px] sm:py-[13px] px-[25px] border-[2px] border-[#161616] text-black font-600 text-[14px] sm:text-[16px] rounded-full font-medium hover:bg-gray-800 hover:text-white transition-all duration-300 transform group-hover:scale-105`}>
+                <button
+                  className={`w-full h-10 sm:h-[50px] py-2.5 sm:py-[13px] px-[25px] hover:border-2 border-[#161616] hover:text-black font-600 text-3.5 sm:text-[16px] rounded-full font-medium hover:bg-white bg-[#1A73E8] text-white transition-all duration-300 transform `}
+                >
                   Read Article
                 </button>
               </div>
@@ -291,24 +313,22 @@ const LearningResourceCards = () => {
              Explore Complete Library 
           </Button> */}
           <Button
-          size={'default'}
-          
-  className={`
+            size={"default"}
+            className={`
     w-full              /* mobile: full width */
     sm:w-[60%]          /* small screens */
     md:w-[45%]          /* medium screens */
     lg:w-[588px]          /* large screens */
    
-    text-lg sm:text-xl md:text-[16px] px-[24px] py-[13px]
+    text-lg sm:text-xl md:text-[16px] px-6 py-[13px]
     md:h-[50px]
     rounded-full
    
     ${poppins.className} font-medium
   `}
->
-  Explore Complete Library
-</Button>
-
+          >
+            Explore Complete Library
+          </Button>
         </div>
       </div>
 

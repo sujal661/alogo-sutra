@@ -1,7 +1,7 @@
-"use client"
-import React from 'react';
-import { Star } from 'lucide-react';
-import { Poppins,Caveat,Inter } from "next/font/google";
+"use client";
+import React from "react";
+import { Star } from "lucide-react";
+import { Poppins, Caveat, Inter } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -19,40 +19,43 @@ const ReviewCardsPage = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Rohit M.',
-      role: 'Retail Trader',
+      name: "Rohit M.",
+      role: "Retail Trader",
       rating: 5,
-      text: 'I\'m pretty technical, but slow trading always felt too technical. Algosutraa explained it in ways I instantly made sense. Their lessons helped me understand the logic behind automation, and I could apply it immediately to my own setups.',
-      avatar: 'R',
-      color: 'from-blue-400 to-blue-600'
+      text: "I'm pretty technical, but slow trading always felt too technical. Algosutraa explained it in ways I instantly made sense. Their lessons helped me understand the logic behind automation, and I could apply it immediately to my own setups.",
+      avatar: "R",
+      color: "from-blue-400 to-blue-600",
     },
     {
       id: 2,
-      name: 'John Doe',
-      role: 'Intraday Trader',
+      name: "John Doe",
+      role: "Intraday Trader",
       rating: 5,
-      text: 'I\'ve been using these Algo strategies, and the consistency was the biggest difference for me. No overtrading, no hesitation—just clean, rule-based execution. It\'s the first trading style that has felt structured instead of reactive.',
-      avatar: 'J',
-      color: 'from-gray-600 to-gray-800'
+      text: "I've been using these Algo strategies, and the consistency was the biggest difference for me. No overtrading, no hesitation—just clean, rule-based execution. It's the first trading style that has felt structured instead of reactive.",
+      avatar: "J",
+      color: "from-gray-600 to-gray-800",
     },
     {
       id: 3,
-      name: 'Anita Singh',
-      role: 'Swing Trader',
+      name: "Anita Singh",
+      role: "Swing Trader",
       rating: 5,
-      text: 'I struggled with discipline and overtrading for months. The team at Algosutraa turned it into an automated system that follows my exact rules. It trades faster and more precisely than I could on my own.',
-      avatar: 'A',
-      color: 'from-pink-400 to-pink-600'
-    }
+      text: "I struggled with discipline and overtrading for months. The team at Algosutraa turned it into an automated system that follows my exact rules. It trades faster and more precisely than I could on my own.",
+      avatar: "A",
+      color: "from-pink-400 to-pink-600",
+    },
   ];
 
   return (
-    <section className=" py-5 md:py-12 px-[14px] md:px-[36px]  ">
+    <section className=" py-5 md:py-12 px-3.5 md:px-9  ">
       <div className=" ">
         {/* Header */}
         <div className="mb-12 animate-fade-in">
-          <h2 className={`text-[38px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}>
-            How Traders Benefit<br />
+          <h2
+            className={`text-[38px] sm:text-[44px] md:text-[56px] ${poppins.className} font-normal text-[#606060]`}
+          >
+            How Traders Benefit
+            <br />
             With AlgoSutraa
           </h2>
         </div>
@@ -62,18 +65,22 @@ const ReviewCardsPage = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="   rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
+              className="   rounded-2xl border border-gray-600  transition-all duration-500 transform hover:-translate-y-2 p-6 animate-slide-up group"
               style={{
-                animationDelay: `${index * 0.15}s`
+                animationDelay: `${index * 0.15}s`,
               }}
             >
               {/* User Info */}
               <div className="flex items-center mb-2">
-                <div className={`w-[48px] h-[48px] text-2xl rounded-full ${poppins.className} bg-gradient-to-br ${testimonial.color} flex items-center justify-center text-white font-bold text-lg mr-3 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-12 h-12 text-2xl rounded-full ${poppins.className} bg-linear-to-br ${testimonial.color} flex items-center justify-center text-white font-bold text-lg mr-3 group-hover:scale-110 transition-transform duration-300`}
+                >
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <p className={`font-bold sm:text-[18px] text-[16px] text-gray-800 ${poppins.className} `}>
+                  <p
+                    className={`font-bold sm:text-[18px] text-[16px] text-gray-800 ${poppins.className} `}
+                  >
                     {testimonial.name}
                   </p>
                   <p className="sm:text-[18px] text-[16px] text-[#606060] ">
@@ -90,17 +97,18 @@ const ReviewCardsPage = () => {
                     size={18}
                     className="fill-yellow-400 h-[25px] w-8 text-yellow-400 animate-star-pop"
                     style={{
-                      animationDelay: `${(index * 0.15) + (i * 0.1)}s`
+                      animationDelay: `${index * 0.15 + i * 0.1}s`,
                     }}
                   />
                 ))}
               </div>
 
               {/* Testimonial Text */}
-              <p 
-              key={testimonial.id}
-              style={{fontStyle:'italic'}}
-              className={`text-gray-600 line-clamp-5 text-[15px] sm:text-[17px] md:text-[20px] ${inter.className} hover:line-clamp-none  leading-relaxed `}>
+              <p
+                key={testimonial.id}
+                style={{ fontStyle: "italic" }}
+                className={`text-gray-600 line-clamp-5 text-[15px] sm:text-[17px] md:text-[20px] ${inter.className} hover:line-clamp-none  leading-relaxed `}
+              >
                 "{testimonial.text}"
               </p>
 
