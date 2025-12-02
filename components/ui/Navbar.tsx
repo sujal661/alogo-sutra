@@ -22,7 +22,7 @@ const Navbar = () => {
     { name: "Learning", href: "/learning" },
     { name: "Algorithms", href: "/algorithms" },
     { name: "Contact", href: "/contactUs" },
-    // { name: "Home", href: "/landingPage" },
+    // { name: "Home", href: "/" },
     { name: "About", href: "/aboutUs" },
 
     // { name: "Products", href: "/products" },
@@ -50,10 +50,7 @@ const Navbar = () => {
       <div className=" w-full mx-auto  ">
         <div className="flex justify-between items-center ">
           {/* Logo */}
-          <Link
-            href={"/landingPage"}
-            className="flex  items-center  animate-fade-in"
-          >
+          <Link href={"/"} className="flex  items-center  animate-fade-in">
             {/* <span className="text-xl md:text-2xl font-bold text-gray-800">
                 ALGO<span className="text-teal-500">SUTRAA</span>
               </span> */}
