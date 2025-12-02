@@ -1,9 +1,8 @@
+import LandingPageScreen from "@/features/landingPage/LandingPageScreen";
+import React from "react";
 
-import Image from "next/image";
-import { redirect } from "next/navigation";
+const page = () => {
+  return <LandingPageScreen />;
+};
 
-export default function Home() {
-  return (
-    redirect('/landingPage')
-  );
-}
+export default page;
