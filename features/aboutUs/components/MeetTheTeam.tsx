@@ -1,6 +1,7 @@
 import { Poppins, Inter } from "next/font/google";
 import { Linkedin, Facebook } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -45,7 +46,6 @@ export default function MeetTheTeam() {
   return (
     <div className="py-16">
       <div className="mx-auto">
-
         {/* Title */}
         <div className="mb-8" id="title">
           <p
@@ -60,15 +60,16 @@ export default function MeetTheTeam() {
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
               <div key={member.id} id={member.id}>
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden group">
-
+                <div className="bg-white rounded-lg shadow-lg hover:shadow-2xl overflow-hidden group">
                   {/* IMAGE */}
                   <div className="relative overflow-hidden">
-                    <div className=" h-[350px] relative">
-                      <img
+                    <div className=" h-[350px] relative p-2">
+                      <Image
                         src={`/img/userimg.jpg`}
+                        width={200}
+                        height={350}
                         alt={member.name}
-                        className="w-full h-[350px] scale-135 translate-x-11  object-cover mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500"
+                        className="w-full h-[350px] scale-135 translate-x-11  object-cover mix-blend-multiply  group-hover:scale-110 group-hover:opacity-100 transition-all duration-500"
                       />
                     </div>
                   </div>
@@ -116,14 +117,12 @@ export default function MeetTheTeam() {
                         </svg>
                       </a>
                     </div>
-
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
